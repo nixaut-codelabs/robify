@@ -1,0 +1,164 @@
+[
+  {
+    "id": "ultra-fps",
+    "name": "Ultra FPS Profile",
+    "description": "Maximize your FPS with optimized rendering flags for competitive gaming. This profile disables unnecessary visual effects and optimizes rendering pipeline for maximum performance.",
+    "category": "Performance",
+    "flags": [
+      {
+        "name": "DFFlagDisablePostFx",
+        "value": true,
+        "description": "Disables post-processing effects for better performance"
+      },
+      {
+        "name": "FIntRenderShadowIntensity",
+        "value": 0,
+        "description": "Disables shadows completely"
+      },
+      {
+        "name": "FIntDebugForceMSAASamples",
+        "value": 1,
+        "description": "Reduces anti-aliasing for better FPS"
+      },
+      {
+        "name": "FFlagDebugGraphicsDisableDirect3D11",
+        "value": true,
+        "description": "Forces a more modern graphics API for potential performance gains"
+      },
+      {
+        "name": "FFlagDebugGraphicsPreferVulkan",
+        "value": true,
+        "description": "Prefers the Vulkan renderer for higher performance"
+      },
+      {
+        "name": "DFIntTaskSchedulerTargetFps",
+        "value": 75,
+        "description": "Sets a high target FPS for the task scheduler"
+      },
+      {
+        "name": "FFlagEnableFPSAndFrameTime",
+        "value": true,
+        "description": "Enables FPS and frame time monitoring"
+      },
+      {
+        "name": "DFFlagDisableMemoryTracking",
+        "value": true,
+        "description": "Disables memory tracking to reduce overhead"
+      }
+    ],
+    "benefits": [
+      "Significant FPS boost",
+      "Reduced stuttering",
+      "Optimized rendering pipeline",
+      "Lower GPU and CPU usage"
+    ],
+    "compatibility": ["Windows", "Mac", "Mobile"],
+    "impact": "High",
+    "difficulty": "Easy",
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2025-07-24T20:05:18Z"
+  },
+  {
+    "id": "low-latency",
+    "name": "Low-Latency Profile",
+    "description": "Reduce network latency for competitive gaming with ping optimization and network tweaks.",
+    "category": "Network",
+    "flags": [
+      {
+        "name": "DFIntMaxReceiveToDeserializeLatencyMilliseconds",
+        "value": 10,
+        "description": "Minimizes latency for processing incoming network data"
+      },
+      {
+        "name": "DFIntNetworkStopProducingPacketsToProcessThresholdMs",
+        "value": 0,
+        "description": "Reduces the threshold for stopping packet processing"
+      },
+      {
+        "name": "DFIntMaxWaitTimeBeforeForcePacketProcessMS",
+        "value": 0,
+        "description": "Minimizes wait time before forcing packet processing"
+      },
+      {
+        "name": "DFIntClientPacketMaxDelayMs",
+        "value": 100,
+        "description": "Manages the maximum delay for client packets"
+      },
+      {
+        "name": "DFFlagHttpTrackSyncWriteCachePhase",
+        "value": true,
+        "description": "Tracks sync write cache phase for network optimization"
+      }
+    ],
+    "benefits": [
+      "Lower ping",
+      "Faster network response",
+      "Optimized data transmission",
+      "More stable connection"
+    ],
+    "compatibility": ["Windows", "Mac"],
+    "impact": "Medium",
+    "difficulty": "Easy",
+    "createdAt": "2024-01-16T09:15:00Z",
+    "updatedAt": "2025-07-24T20:05:18Z"
+  },
+  {
+    "id": "graphics-enhanced",
+    "name": "Graphics Enhanced Profile",
+    "description": "Unlock advanced graphics features and visual enhancements for the best visual experience.",
+    "category": "Graphics",
+    "flags": [
+      {
+        "name": "FIntRenderShadowIntensity",
+        "value": 1,
+        "description": "Enables high-quality shadows"
+      },
+      {
+        "name": "FIntDebugForceMSAASamples",
+        "value": 8,
+        "description": "Enables 8x MSAA for maximum anti-aliasing"
+      },
+      {
+        "name": "FFlagRenderLanczosUpsamplingNonRinging2",
+        "value": true,
+        "description": "Uses high-quality Lanczos upsampling for better image clarity"
+      },
+      {
+        "name": "DFFlagTextureQualityOverrideEnabled",
+        "value": true,
+        "description": "Allows overriding texture quality"
+      },
+      {
+        "name": "DFIntTextureQualityOverride",
+        "value": 0,
+        "description": "Sets the highest texture quality"
+      },
+      {
+        "name": "FFlagExtendedLightRanges2",
+        "value": true,
+        "description": "Enables extended light ranges for more realistic lighting"
+      },
+      {
+        "name": "FFlagRenderInitShadowmaps",
+        "value": true,
+        "description": "Initializes shadow maps for better shadow rendering"
+      },
+      {
+        "name": "FFlagSimCSG4EnableMesh",
+        "value": true,
+        "description": "Enables more detailed and complex meshes"
+      }
+    ],
+    "benefits": [
+      "Enhanced visual fidelity",
+      "Superior lighting and shadows",
+      "Crisper textures and anti-aliasing",
+      "Immersive graphical experience"
+    ],
+    "compatibility": ["Windows", "Mac"],
+    "impact": "High",
+    "difficulty": "Medium",
+    "createdAt": "2024-01-17T16:20:00Z",
+    "updatedAt": "2025-07-24T20:05:18Z"
+  }
+]
