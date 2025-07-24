@@ -178,11 +178,26 @@ function ProfilesPageContent() {
   };
 
   const copyProfileToClipboard = (profile) => {
+    // Convert flags array to an object
+    const flagsObject = (profile.flags || []).reduce((obj, flag) => {
+      obj[flag.name] = flag.value;
+      return obj;
+    }, {});
+  
     const profileData = {
       name: profile.name,
-      flags: profile.flags || []
+      flags: flagsObject,
     };
-    navigator.clipboard.writeText(JSON.stringify(profileData, null, 2));
+  
+    navigator.clipboard.writeText(JSON.stringify(profileData.flags, null, 2))
+      .then(() => {
+        // Optional: Show a success toast notification
+        console.log('Profile copied to clipboard!');
+      })
+      .catch(err => {
+        console.error('Failed to copy profile: ', err);
+        // Optional: Show an error toast notification
+      });
   };
 
   return (

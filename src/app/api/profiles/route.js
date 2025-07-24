@@ -30,6 +30,7 @@ export async function GET(request) {
         category: p.category,
         impact: p.impact,
         difficulty: p.difficulty,
+        flags: p.flags || [], // Include the full flags array
         flagCount: p.flags ? p.flags.length : 0,
         benefits: p.benefits || [],
         compatibility: p.compatibility || [],
@@ -67,6 +68,7 @@ export async function GET(request) {
         category: p.category,
         impact: p.impact,
         difficulty: p.difficulty,
+        flags: p.flags || [], // Include the full flags array
         flagCount: p.flags ? p.flags.length : 0,
         benefits: p.benefits || [],
         compatibility: p.compatibility || [],
