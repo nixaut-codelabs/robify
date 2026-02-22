@@ -1,0 +1,345 @@
+@import "../styles/globals.css";
+
+@layer base {
+  :root {
+    @apply font-sans;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-w-[320px] min-h-screen m-0 bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+/* ===== PARTICLE BACKGROUND ===== */
+.particles-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20vh) scale(1);
+  }
+}
+
+/* ===== GRADIENT ORB BACKGROUNDS ===== */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.gradient-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: oklch(0.65 0.2 260);
+  top: -200px;
+  left: -100px;
+  animation: orb-drift-1 20s ease-in-out infinite;
+}
+
+.gradient-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: oklch(0.6 0.25 300);
+  bottom: -150px;
+  right: -100px;
+  animation: orb-drift-2 25s ease-in-out infinite;
+}
+
+.gradient-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: oklch(0.7 0.18 180);
+  top: 40%;
+  left: 50%;
+  animation: orb-drift-3 18s ease-in-out infinite;
+}
+
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(80px, 40px); }
+  66% { transform: translate(-40px, 80px); }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-60px, -30px); }
+  66% { transform: translate(30px, -60px); }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(-50%, 0); }
+  33% { transform: translate(calc(-50% + 50px), -40px); }
+  66% { transform: translate(calc(-50% - 50px), 40px); }
+}
+
+/* ===== GLASS MORPHISM ===== */
+.glass {
+  background: oklch(0.12 0.008 260 / 60%);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid oklch(1 0 0 / 8%);
+}
+
+.glass-card {
+  background: oklch(0.12 0.008 260 / 40%);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid oklch(1 0 0 / 6%);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-card:hover {
+  background: oklch(0.14 0.01 260 / 50%);
+  border-color: oklch(1 0 0 / 12%);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px oklch(0 0 0 / 30%);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, oklch(0.75 0.18 260), oklch(0.7 0.22 300), oklch(0.8 0.15 200));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, oklch(0.8 0.2 80), oklch(0.75 0.22 50), oklch(0.7 0.18 30));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== GLOW EFFECTS ===== */
+.glow-primary {
+  box-shadow: 0 0 30px oklch(0.65 0.2 260 / 20%), 0 0 60px oklch(0.65 0.2 260 / 10%);
+}
+
+.glow-primary-hover:hover {
+  box-shadow: 0 0 40px oklch(0.65 0.2 260 / 30%), 0 0 80px oklch(0.65 0.2 260 / 15%);
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, oklch(0.65 0.2 260 / 30%), transparent 50%, oklch(0.6 0.25 300 / 30%));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ===== TYPEWRITER EFFECT ===== */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid oklch(0.65 0.2 260);
+  animation: typewriter-cursor 1s step-end infinite;
+}
+
+@keyframes typewriter-cursor {
+  0%, 100% { border-color: oklch(0.65 0.2 260); }
+  50% { border-color: transparent; }
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in-up {
+  animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.fade-in-up-delay-1 { animation-delay: 0.1s; }
+.fade-in-up-delay-2 { animation-delay: 0.2s; }
+.fade-in-up-delay-3 { animation-delay: 0.3s; }
+.fade-in-up-delay-4 { animation-delay: 0.4s; }
+.fade-in-up-delay-5 { animation-delay: 0.5s; }
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== PULSE DOT (Status indicator) ===== */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: oklch(0.75 0.2 150);
+  position: relative;
+}
+
+.pulse-dot::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: oklch(0.75 0.2 150 / 30%);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* ===== COUNTER ANIMATION ===== */
+.counter-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== GRID BACKGROUND ===== */
+.grid-bg {
+  background-image:
+    linear-gradient(oklch(1 0 0 / 3%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(1 0 0 / 3%) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.07 0.005 260);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.25 0.02 260);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.35 0.03 260);
+}
+
+/* ===== BADGE ===== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: oklch(0.15 0.01 260 / 80%);
+  border: 1px solid oklch(1 0 0 / 8%);
+  color: oklch(0.8 0 0);
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 10%) 50%, transparent);
+}
+
+/* ===== HOVER LIFT ===== */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px oklch(0 0 0 / 25%);
+}
+
+/* ===== LINE CLAMP ===== */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
